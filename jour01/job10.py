@@ -49,10 +49,16 @@ class Voiture:
     def demarrer(self):
         if self.get_enMarche()=="à l'arrêt" and self.verifier_plein()>5:
             self.change_enMarche()
+        elif self.verifier_plein()<5:
+            print("Impossible de démarrer plus d'essence")
+        else:
+            print("Impossible de démarrer")
         
     def arreter(self):
         if self.get_enMarche()=="en marche":
             self.change_enMarche()
+        else:
+            print("Voiture déjà à l'arrêt")
         
     def verifier_plein(self):
         return self.__reservoir
@@ -65,4 +71,7 @@ voiture.info()
 voiture.demarrer()
 voiture.info()
 voiture.arreter()
+voiture.arreter()
 voiture.info()
+voiture.set_reservoir(4)
+voiture.demarrer()
